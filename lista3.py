@@ -1,6 +1,9 @@
 import cv2
 from matplotlib import pyplot as plt
 import numpy as np
+import os
+
+pasta_destino = '//home/paulo/Área de Trabalho/PDI_Exercicios'
 
 img1 = cv2.cvtColor(cv2.imread("w.jpeg"), cv2.COLOR_BGR2GRAY)
 img2 = cv2.cvtColor(cv2.imread("w.jpg"), cv2.COLOR_BGR2GRAY)
@@ -116,44 +119,78 @@ def detector_bordas_prewitt(imagem):
 img1_suave = vizinhanca(img1)
 plt.axis("off")
 plt.imshow(cv2.cvtColor(img1_suave, cv2.COLOR_BGR2RGB))
+caminho_imagem = os.path.join(pasta_destino, "img1_suave.jpeg")
+cv2.imwrite(caminho_imagem, img1_suave)
+
 img2_suave = vizinhanca(img2)
 plt.axis("off")
 plt.imshow(cv2.cvtColor(img2_suave, cv2.COLOR_BGR2RGB))
+caminho_imagem = os.path.join(pasta_destino, "img2_suave.jpg")
+cv2.imwrite(caminho_imagem, img2_suave)
+
 
 k = 5
-img1_k = filtro_suavizacao_media(img1, k)
 img2_k = filtro_suavizacao_media(img2, k)
 plt.axis("off")
 plt.imshow(cv2.cvtColor(img2_k, cv2.COLOR_BGR2RGB))
+caminho_imagem = os.path.join(pasta_destino, "img2_k.jpg")
+cv2.imwrite(caminho_imagem, img2_k)
 
+img1_k = filtro_suavizacao_media(img1, k)
 plt.axis("off")
 plt.imshow(cv2.cvtColor(img1_k, cv2.COLOR_BGR2RGB))
+caminho_imagem = os.path.join(pasta_destino, "img1_k.jpeg")
+cv2.imwrite(caminho_imagem, img1_k)
+
+
 img1_lap = operador_laplaciano(img1)
 img2_lap = operador_laplaciano(img2)
 plt.axis("off")
 plt.imshow(cv2.cvtColor(img1_lap, cv2.COLOR_BGR2RGB))
 
+caminho_imagem = os.path.join(pasta_destino, "img1_lap.jpeg")
+cv2.imwrite(caminho_imagem, img1_lap)
 plt.axis("off")
 plt.imshow(cv2.cvtColor(img2_lap, cv2.COLOR_BGR2RGB))
+
+caminho_imagem = os.path.join(pasta_destino, "img2_lap.jpg")
+cv2.imwrite(caminho_imagem, img2_lap)
+
 img1_rob = detector_bordas_roberts(img1)
 plt.axis("off")
 plt.imshow(cv2.cvtColor(img1_rob, cv2.COLOR_BGR2RGB))
 
+caminho_imagem = os.path.join(pasta_destino, "img1_rob.jpeg")
+cv2.imwrite(caminho_imagem, img1_rob)
 img2_rob = detector_bordas_roberts(img2)
 plt.axis("off")
 plt.imshow(cv2.cvtColor(img2_rob, cv2.COLOR_BGR2RGB))
+caminho_imagem = os.path.join(pasta_destino, "img2_rob.jpg")
+cv2.imwrite(caminho_imagem, img2_rob)
+
 
 img1_pre = detector_bordas_prewitt(img1)
 plt.axis("off")
 plt.imshow(cv2.cvtColor(img1_pre, cv2.COLOR_BGR2RGB))
+caminho_imagem = os.path.join(pasta_destino, "img1_pre.jpeg")
+cv2.imwrite(caminho_imagem, img1_pre)
 
 img2_pre = detector_bordas_prewitt(img2)
 plt.axis("off")
 plt.imshow(cv2.cvtColor(img2_pre, cv2.COLOR_BGR2RGB))
+caminho_imagem = os.path.join(pasta_destino, "img2_pre.jpg")
+cv2.imwrite(caminho_imagem, img2_pre)
+
 
 img1_sob = detector_bordas_sobel(img1)
 plt.axis("off")
 plt.imshow(cv2.cvtColor(img1_sob, cv2.COLOR_BGR2RGB))
+caminho_imagem = os.path.join(pasta_destino, "img1_sob.jpeg")
+cv2.imwrite(caminho_imagem, img1_sob)
+
 img2_sob = detector_bordas_sobel(img2)
 plt.axis("off")
 plt.imshow(cv2.cvtColor(img2_sob, cv2.COLOR_BGR2RGB))
+caminho_imagem = os.path.join(pasta_destino, "img2_sob.jpg")
+cv2.imwrite(caminho_imagem, img2_sob)
+
